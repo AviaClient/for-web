@@ -41,6 +41,9 @@ jobs:
       - name: Build web client
         run: BASE_PATH=/for-web/ mise build
 
+      - name: Create 404 fallback
+        run: cp packages/client/dist/index.html packages/client/dist/404.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
