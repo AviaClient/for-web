@@ -124,25 +124,25 @@ const Config: SettingsConfiguration<{ server: Server }> = {
     return {
       context: null!,
       prepend: (
-        <Column gap='s'>
+        <Column gap="s">
           <BackCard onClose={onClose} />
           <AccountCard />
           <div />
         </Column>
       ),
       append: (
-        <Column gap='none'>
-          <Text class='label'>
+        <Column gap="none">
+          <Text class="label">
             <span class={css({ userSelect: "none", fontWeight: "bold" })}>
               <Trans>Version:</Trans>
             </span>{" "}
             <span class={css({ userSelect: "all" })}>{pkg.version}</span>
           </Text>
           <Show when={window.native}>
-            <Text class='label'>
+            <Text class="label">
               Stoat for Desktop {window.native.versions.desktop()}
             </Text>
-            <Text class='label'>
+            <Text class="label">
               <span
                 class={css({
                   fontSize: "0.8em",
@@ -158,7 +158,7 @@ const Config: SettingsConfiguration<{ server: Server }> = {
           </Show>
           <Show when={legalLinks()}>
             {(links) => (
-              <Text class='label'>
+              <Text class="label">
                 <span
                   class={css({
                     display: "flex",
@@ -175,8 +175,8 @@ const Config: SettingsConfiguration<{ server: Server }> = {
                   <Show when={links().terms_of_service}>
                     <a
                       href={links().terms_of_service}
-                      target='_blank'
-                      rel='noopener noreferrer'
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <Trans>Terms</Trans>
                     </a>
@@ -184,8 +184,8 @@ const Config: SettingsConfiguration<{ server: Server }> = {
                   <Show when={links().privacy_policy}>
                     <a
                       href={links().privacy_policy}
-                      target='_blank'
-                      rel='noopener noreferrer'
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <Trans>Privacy</Trans>
                     </a>
@@ -193,8 +193,8 @@ const Config: SettingsConfiguration<{ server: Server }> = {
                   <Show when={links().guidelines}>
                     <a
                       href={links().guidelines}
-                      target='_blank'
-                      rel='noopener noreferrer'
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <Trans>Guidelines</Trans>
                     </a>
@@ -227,18 +227,6 @@ const Config: SettingsConfiguration<{ server: Server }> = {
             },
           ],
         },
-
-        {
-          title: "AVIA CLIENT SETTINGS",
-          entries: [
-            {
-              id: "avia_client_settings",
-              icon: <MdMemory {...iconSize(20)} />,
-              title: "(Avia) Client Settings",
-            },
-          ],
-        },
-
         {
           title: "Stoat",
           entries: [
@@ -289,27 +277,27 @@ const Config: SettingsConfiguration<{ server: Server }> = {
               icon: <MdPalette {...iconSize(20)} />,
               title: <Trans>Appearance</Trans>,
             },
-            // {
-            //   id: "accessibility",
-            //   icon: <MdAccessibility {...iconSize(20)} />,
-            //   title: t("app.settings.pages.accessibility.title"),
-            // },
-            // {
-            //   id: "plugins",
-            //   icon: <MdExtension {...iconSize(20)} />,
-            //   title: t("app.settings.pages.plugins.title"),
-            //   hidden: !getController("state").experiments.isEnabled("plugins"),
-            // },
             {
-              id: "notifications",
-              icon: <MdNotifications {...iconSize(20)} />,
-              title: <Trans>Notifications</Trans>,
+               id: "accessibility",
+               icon: <MdAccessibility {...iconSize(20)} />,
+               title: t("app.settings.pages.accessibility.title"),
             },
-            // {
-            //   id: "keybinds",
-            //   icon: <MdKeybinds {...iconSize(20)} />,
-            //   title: t("app.settings.pages.keybinds.title"),
-            // },
+            {
+               id: "plugins",
+               icon: <MdExtension {...iconSize(20)} />,
+               title: t("app.settings.pages.plugins.title"),
+               hidden: !getController("state").experiments.isEnabled("plugins"),
+            },
+            {
+               id: "notifications",
+               icon: <MdNotifications {...iconSize(20)} />,
+               title: <Trans>Notifications</Trans>,
+            },
+            {
+              id: "keybinds",
+              icon: <MdKeybinds {...iconSize(20)} />,
+              title: t("app.settings.pages.keybinds.title"),
+            },
             {
               id: "language",
               icon: <MdLanguage {...iconSize(20)} />,
@@ -362,10 +350,10 @@ const Config: SettingsConfiguration<{ server: Server }> = {
             {
               id: "logout",
               icon: (
-                <MdLogout {...iconSize(20)} fill='var(--md-sys-color-error)' />
+                <MdLogout {...iconSize(20)} fill="var(--md-sys-color-error)" />
               ),
               title: (
-                <ColouredText colour='var(--md-sys-color-error)'>
+                <ColouredText colour="var(--md-sys-color-error)">
                   <Trans>Log Out</Trans>
                 </ColouredText>
               ),
