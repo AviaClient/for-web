@@ -61,6 +61,7 @@ export function ProfileBanner(props: {
           interactive={props.user.avatar && !!props.onClickAvatar}
           overlay={<UserStatus.Graphic status={props.user.presence} />}
         />
+
         <UserDetails>
           <Show
             when={
@@ -72,24 +73,26 @@ export function ProfileBanner(props: {
               {props.member?.displayName ?? props.user.displayName}
             </span>
           </Show>
-          <Row>
-            <UsernameContainer>
-              <Tooltip
-                content={isCopied() ? t`Copied!` : t`Click to copy username`}
-                placement="top"
-              >
-                <Username onClick={onUsernameClick}>
-                  {props.user.username}
-                  <LowEmphasis>#{props.user.discriminator}</LowEmphasis>
-                </Username>
-              </Tooltip>
-            </UsernameContainer>
+
+          <UsernameContainer>
+            <Tooltip
+              content={isCopied() ? t`Copied!` : t`Click to copy username`}
+              placement="top"
+            >
+              <Username onClick={onUsernameClick}>
+                {props.user.username}
+                <LowEmphasis>#{props.user.discriminator}</LowEmphasis>
+              </Username>
+            </Tooltip>
+          </UsernameContainer>
+
+          <Show when={pronouns()}>
             <Pronouns>
               <OverflowingText>
-                <LowEmphasis>{pronouns() ?? ""}</LowEmphasis>
+                <LowEmphasis>{pronouns()}</LowEmphasis>
               </OverflowingText>
             </Pronouns>
-          </Row>
+          </Show>
         </UserDetails>
       </Row>
     </Banner>
@@ -98,7 +101,6 @@ export function ProfileBanner(props: {
 
 const Banner = styled("div", {
   base: {
-    // for <Ripple />:
     position: "relative",
 
     userSelect: "none",
@@ -140,9 +142,9 @@ const UserDetails = styled("div", {
 
     flexGrow: 1,
     display: "flex",
-    lineHeight: "1rem",
-    gap: "var(--gap-xs)",
     flexDirection: "column",
+    gap: "var(--gap-xs)",
+    lineHeight: "1rem",
   },
 });
 
@@ -169,10 +171,8 @@ const LowEmphasis = styled("span", {
 const Pronouns = styled("div", {
   base: {
     ...typography.raw(),
+
     minWidth: 0,
-    flexGrow: 1,
     lineHeight: "1rem",
-    gap: "var(--gap-xs)",
-    textAlign: "right",
   },
 });
