@@ -282,12 +282,12 @@ const Config: SettingsConfiguration<{ server: Server }> = {
             //   icon: <MdAccessibility {...iconSize(20)} />,
             //   title: t("app.settings.pages.accessibility.title"),
             // },
-            {
-              id: "plugins",
-              icon: <MdExtension {...iconSize(20)} />,
-              title: t("app.settings.pages.plugins.title"),
-              hidden: !getController("state").experiments.isEnabled("plugins"),
-            },
+            // {
+            //   id: "plugins",
+            //   icon: <MdExtension {...iconSize(20)} />,
+            //   title: t("app.settings.pages.plugins.title"),
+            //   hidden: !getController("state").experiments.isEnabled("plugins"),
+            // },
             {
               id: "notifications",
               icon: <MdNotifications {...iconSize(20)} />,
