@@ -157,7 +157,8 @@ render(
   () => (
     <DeviceContext>
       <StateContext>
-        <Router base={import.meta.env.BASE_URL} root={MountContext}>
+      <Router root={MountContext}>
+        <Route path="/for-web">
           <Route path="/login" component={AuthPage as never}>
             <Route path="/delete/:token" component={FlowDeleteAccount} />
             <Route path="/check" component={FlowCheck} />
@@ -185,7 +186,8 @@ render(
             <Route path="/channel/:channel/*" component={ChannelPage} />
             <Route path="/*" component={HomePage} />
           </Route>
-        </Router>
+        </Route>
+      </Router>
 
         <LoadTheme />
         {/* <ReportBug /> */}
