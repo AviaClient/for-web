@@ -83,6 +83,6 @@ export default defineConfig({
   // Enable jsx code gen
   jsxFramework: "solid",
 
-  hash: false,
+  hash: true,
   minify: false,
 });
