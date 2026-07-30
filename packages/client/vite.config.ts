@@ -104,7 +104,7 @@ export default defineConfig({
     minify: "terser",
     terserOptions: {
       ecma: 2020,
-      module: true,
+      module: false,
       format: { inline_script: false, comments: false },
       mangle: { properties: { regex: /^#/ } },
       compress: {
